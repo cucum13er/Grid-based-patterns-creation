@@ -3,7 +3,7 @@
 clear;
 clc;
 close all;
-addpath('C:\Rui_Onedrive\OneDrive\2019Fall\project\superregistration');
+% addpath('C:\Rui_Onedrive\OneDrive\2019Fall\project\superregistration');
 image_size = 400;
 pt_size = 20;
 gap_x = 20;
