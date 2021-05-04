@@ -8,14 +8,15 @@ image_size = 400;
 pt_size = 20;
 gap_x = 20;
 gap_y = 20;
-movefactor = 1;
-distorted_perkind = 20;
+movefactor = 10;
+distortion_factor = 1
+distorted_perkind = 10;
 base_path = '.\simulationData\';
 if ~exist(base_path,'dir')
     mkdir(base_path);
 end
 pt_kinds = ["square","circle","hexagon"];
-distortion_factor = "40";
+distortion_factor = "10";
 %% loop for generating
 for p = 1:length(pt_kinds)
     % generate undistorted images for each kind of pattern
@@ -30,7 +31,8 @@ for p = 1:length(pt_kinds)
     end
     imwrite(image, fullfile(save_path,image_name));    
     for i = 1:distorted_perkind
-        warpFactor = 4 * [10*pi/360, 0.1, 0.05]; % [5*pi/360, 0.1, 0.05]
+        % change the distortion factor 
+        warpFactor = distortion_factor * [10*pi/360, 0.1, 0.05]; % [5*pi/360, 0.1, 0.05]
         [Im, centers] = warpedImage_factor(image, pt_kind, pt_pos, pt_size, gap_x, gap_y, warpFactor,movefactor);
         % save each distorted image    
         image_name = sprintf('%s_%04d.tif', pt_kind,i);
