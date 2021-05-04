@@ -1,5 +1,5 @@
 % generate training data
-%% setting some parameters
+%% setting some parameters 
 clear;
 clc;
 close all;
